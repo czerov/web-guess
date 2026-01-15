@@ -18,61 +18,100 @@ const htmlTemplate = `<!DOCTYPE html>
     <title>猜数字游戏</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', monospace;
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
             text-align: center;
-            background-color: #f5f5f5;
+            background-color: #0a0a1e;
+            background-image: linear-gradient(to bottom, #0a0a1e, #1a1a3e);
+            color: #00ffff;
+            min-height: 100vh;
         }
         h1 {
-            color: #333;
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            margin-bottom: 30px;
         }
         .game-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: rgba(10, 10, 30, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        p {
+            font-size: 18px;
+            color: #00ffff;
+            margin-bottom: 20px;
         }
         input[type="number"] {
-            padding: 10px;
-            font-size: 16px;
-            width: 200px;
-            margin: 10px 0;
+            padding: 15px;
+            font-size: 20px;
+            width: 250px;
+            margin: 20px 0;
+            background-color: rgba(10, 10, 30, 0.8);
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            border-color: #ff00ff;
         }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: rgba(255, 0, 255, 0.2);
+            color: #ff00ff;
+            border: 2px solid #ff00ff;
+            border-radius: 5px;
             cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+            transition: all 0.3s ease;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: rgba(255, 0, 255, 0.4);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+            transform: translateY(-2px);
         }
         .message {
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 18px;
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 8px;
             font-weight: bold;
+            border: 2px solid;
+            box-shadow: 0 0 15px;
         }
         .message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+            background-color: rgba(0, 255, 0, 0.2);
+            color: #00ff00;
+            border-color: #00ff00;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+            font-size: 32px;
+            text-shadow: 0 0 10px #00ff00;
         }
         .message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            background-color: rgba(255, 255, 0, 0.2);
+            color: #ffff00;
+            border-color: #ffff00;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.7);
+            font-size: 24px;
+            text-shadow: 0 0 10px #ffff00;
         }
         .message.info {
-            background-color: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
+            background-color: rgba(0, 255, 255, 0.2);
+            color: #00ffff;
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
         }
     </style>
 </head>
